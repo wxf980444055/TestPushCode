@@ -24,6 +24,7 @@ user_list = [
     # return render(request, "index.html",)
 
 def index(request):
+    global user_list
     if request.method == "POST":
         username = request.POST.get("username", None)
         password = request.POST.get("password", None)
@@ -32,4 +33,4 @@ def index(request):
         user_list.append(temp)
     else:
         user_list = [{"user":"haha", "pwd":"wozhidao"}]
-        return render(request, "index.html",{"data":user_list})
+    return render(request, "index.html",{"data":user_list})
